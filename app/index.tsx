@@ -1,34 +1,28 @@
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
 
-export default function Page() {
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './screens/HomeScreen';
+import DetailsScreen from './screens/DetailsScreen';
+
+export type RootStackParamList = {
+  Home: undefined;
+  Details: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+export default function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.main}>
-        <Text style={styles.title}>Hello World</Text>
-        <Text style={styles.subtitle}>This is the first page of your app.</Text>
-      </View>
-    </View>
+    
+    
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Details" component={DetailsScreen} />
+    </Stack.Navigator>
+
+    
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    padding: 24,
-  },
-  main: {
-    flex: 1,
-    justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
-  },
-  title: {
-    fontSize: 64,
-    fontWeight: "bold",
-  },
-  subtitle: {
-    fontSize: 36,
-    color: "#38434D",
-  },
-});
+
