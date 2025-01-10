@@ -1,32 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import { Avatar,Appbar } from 'react-native-paper';
 import BottomNav from './BottomNav'
-
-
+import StudentTitle from './StudentTitle';
 
 
 export default function StudentHome() {
-    const _goBack = () => console.log('Went back');
-
-    const _handleSearch = () => console.log('Searching');
-  
-    const _handleMore = () => console.log('Shown more');
-
-
   return (
-
     <View style={styles.container}>
-        <Appbar.Header style={{backgroundColor:"black"}}>
-        <Avatar.Icon size={45} icon="account" style={{ backgroundColor:"black"}}/>
-            
-            <Appbar.Content title="Student" color='#FFD700' titleStyle={{fontWeight:"700"}}/>
-            <Appbar.Action icon="magnify" />
-        </Appbar.Header>
+        <StudentTitle/>
         <BottomNav />
-
     </View>
-
   );
 }
 
