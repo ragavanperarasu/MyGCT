@@ -4,6 +4,7 @@ export type RootStackParamList = {
   Details: undefined;
   TeacherHome: undefined;
   RegSel:{reqType : string};
-  DepSel:undefined;
-  SemSel:undefined;
+  DepSel:{reqType : string, regType : string};
+  SemSel:{reqType : string, regType : string , depType : string, dep : string};
+  SubShow:{reqType : string, regType : string , depType : string, semType : string};
 };

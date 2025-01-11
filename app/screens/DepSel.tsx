@@ -3,10 +3,15 @@ import { View, StyleSheet, ScrollView } from 'react-native'
 import StudentTitle from './StudentTitle'
 import { Avatar, Card} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from './RootParam';
+
+type DepSelScreenProp = StackNavigationProp<RootStackParamList, "DepSel">;
 
 
-export default function DepSel() {
-    const navigation = useNavigation();
+export default function DepSel({route}:{route: DepSelScreenProp}) {
+    const navigation = useNavigation<DepSelScreenProp>();
+    const {reqType, regType} = route.params;
   return (
     <View style={{flex:1}}>
         <StudentTitle/>
@@ -18,7 +23,8 @@ export default function DepSel() {
 
     <ScrollView style={{padding:10}}>
 
-    <Card onPress={()=>navigation.navigate('SemSel')} style={styles.cardm}>
+    <Card onPress={()=>navigation.
+      navigate('SemSel',{reqType:reqType, regType:regType, depType:"ce", dep:"Civil"})} style={styles.cardm}>
     <Card.Title
     title="Civil" 
     titleStyle={styles.cardts}
@@ -28,7 +34,8 @@ export default function DepSel() {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SemSel')} style={styles.cardm}>
+    <Card onPress={()=>navigation.
+      navigate('SemSel',{reqType:reqType, regType:regType, depType:"cse", dep:"CSE"})} style={styles.cardm}>
     <Card.Title
     title="Computer Science" 
     titleStyle={styles.cardts}
@@ -38,7 +45,8 @@ export default function DepSel() {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SemSel')} style={styles.cardm}>
+    <Card onPress={()=>navigation.
+      navigate('SemSel',{reqType:reqType, regType:regType, depType:"ecs", dep:"ECE"})} style={styles.cardm}>
     <Card.Title
     title="Electronics And Communication" 
     titleNumberOfLines={2}
@@ -49,9 +57,11 @@ export default function DepSel() {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SemSel')} style={styles.cardm}>
+    <Card onPress={()=>navigation.
+      navigate('SemSel',{reqType:reqType, regType:regType, depType:"ee", dep:"E&E"})} style={styles.cardm}>
     <Card.Title
     title="Electrical And Electronics" 
+    titleNumberOfLines={2}
     titleStyle={styles.cardts}
     subtitle="Engineering" 
     subtitleStyle={styles.cards}
@@ -59,9 +69,11 @@ export default function DepSel() {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SemSel')} style={styles.cardm}>
+    <Card onPress={()=>navigation.
+      navigate('SemSel',{reqType:reqType, regType:regType, depType:"ei", dep:"E&I"})} style={styles.cardm}>
     <Card.Title
     title="Electrical And Instrumentation" 
+    titleNumberOfLines={2}
     titleStyle={styles.cardts}
     subtitle="Engineering" 
     subtitleStyle={styles.cards}
@@ -69,9 +81,11 @@ export default function DepSel() {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SemSel')} style={styles.cardm}>
+    <Card onPress={()=>navigation.
+      navigate('SemSel',{reqType:reqType, regType:regType, depType:"ibt", dep:"IBT"})} style={styles.cardm}>
     <Card.Title
     title="Industrial Biotechnology" 
+    titleNumberOfLines={2}
     titleStyle={styles.cardts}
     subtitle="B.Tech" 
     subtitleStyle={styles.cards}
@@ -79,7 +93,8 @@ export default function DepSel() {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SemSel')} style={styles.cardm}>
+    <Card onPress={()=>navigation.
+      navigate('SemSel',{reqType:reqType, regType:regType, depType:"it", dep:"IT"})} style={styles.cardm}>
     <Card.Title
     title="Information Technology" 
     titleStyle={styles.cardts}
@@ -89,7 +104,8 @@ export default function DepSel() {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SemSel')} style={styles.cardm}>
+    <Card onPress={()=>navigation.
+      navigate('SemSel',{reqType:reqType, regType:regType, depType:"me", dep:"Mechanical"})} style={styles.cardm}>
     <Card.Title
     title="Mechanical" 
     titleStyle={styles.cardts}
@@ -99,7 +115,8 @@ export default function DepSel() {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SemSel')} style={styles.cardm}>
+    <Card onPress={()=>navigation.
+      navigate('SemSel',{reqType:reqType, regType:regType, depType:"pe", dep:"Production"})} style={styles.cardm}>
     <Card.Title
     title="Production" 
     titleStyle={styles.cardts}

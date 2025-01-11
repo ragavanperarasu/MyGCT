@@ -5,6 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from './RootParam';
 
+
 type HomeScreenProp = StackNavigationProp<RootStackParamList, "Home">;
 
 

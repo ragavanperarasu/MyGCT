@@ -9,6 +9,7 @@ import DetailsScreen from './screens/DetailsScreen';
 import RegSel from './screens/RegSel';
 import DepSel from './screens/DepSel';
 import SemSel from './screens/SemSel';
+import SubShow from './screens/SubShow';
 import {RootStackParamList} from './screens/RootParam';
 
 
@@ -26,6 +27,7 @@ export default function App() {
       <Stack.Screen name="RegSel" component={RegSel} options={{ headerShown: false }}/>
       <Stack.Screen name="DepSel" component={DepSel} options={{ headerShown: false }}/>
       <Stack.Screen name="SemSel" component={SemSel} options={{ headerShown: false }}/>
+      <Stack.Screen name="SubShow" component={SubShow} options={{ headerShown: false }}/>
       <Stack.Screen name="Details" component={DetailsScreen} />
     </Stack.Navigator>
 

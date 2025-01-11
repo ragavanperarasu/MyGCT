@@ -26,7 +26,7 @@ export default function RegSel({route}:{route: RegSelScreenProp}) {
 
         <ScrollView style={{padding:10}}>
 
-    <Card onPress={()=>navigation.navigate('DepSel')} style={styles.cardm}>
+    <Card onPress={()=>navigation.navigate('DepSel', {reqType : reqType, regType:"2022"})} style={styles.cardm}>
     <Card.Title
     title="2022" titleStyle={{fontSize:20, color:"white"}}
     subtitle="Regulation" 
@@ -34,7 +34,7 @@ export default function RegSel({route}:{route: RegSelScreenProp}) {
     left={(props) => <Avatar.Icon {...props} icon="badge-account" size={45} style={styles.cardi}/>}
     style={styles.cardt} /></Card>
 
-    <Card onPress={()=>navigation.navigate('DepSel')} style={styles.cardm}>
+    <Card onPress={()=>navigation.navigate('DepSel', {reqType : reqType, regType:"2018"})} style={styles.cardm}>
     <Card.Title
     title="2018" titleStyle={{fontSize:20, color:"white"}}
     subtitle="Regulation" 
