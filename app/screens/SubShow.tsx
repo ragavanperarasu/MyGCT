@@ -1,7 +1,7 @@
 import React,{ useEffect, useState } from 'react'
-import { View, StyleSheet, ScrollView,ActivityIndicator } from 'react-native'
+import { View, StyleSheet, ScrollView,ActivityIndicator , Alert, Linking} from 'react-native'
 import StudentTitle from './StudentTitle'
-import { Avatar, Card, Text} from 'react-native-paper';
+import { Avatar, Card, Text, Button} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from './RootParam';
@@ -14,23 +14,26 @@ type SubShowScreenProp = StackNavigationProp<RootStackParamList, "SubShow">;
 export default function SubShow({route}:{route: SubShowScreenProp}) {
     const navigation = useNavigation<SubShowScreenProp>();
     const {reqType, regType, depType, semType} = route.params;
-    console.log(reqType+regType+depType+semType)
+
+
+    const f = reqType+regType+depType+semType
+
+
+    const url = `https://raw.githubusercontent.com/ragavanperarasu/MyGCTConfig/master/${reqType}/${regType}/${depType}/${semType}/${f}.json` 
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [ava, setAva] = useState(false);
 
     useEffect(() => {
       const fetchData = async () => {
         try {
-          // Replace with your GitHub raw file URL
-          const url = "https://raw.githubusercontent.com/ragavanperarasu/MyGCTConfig/master/SemQus/2022/cse/sem3/semqus2022csesem3.json";
           const response = await axios.get(url);
-          setData(response.data); // Assuming the JSON is an array
+          setData(response.data); 
           setLoading(false);
-          console.log(data);
         } catch (error) {
-          console.error("Error fetching JSON:", error);
           setLoading(false);
+          setAva(true);
         }
       };
   
@@ -39,33 +42,73 @@ export default function SubShow({route}:{route: SubShowScreenProp}) {
   
     if (loading) {
       return (
-        <View style={styles.container}>
-          <ActivityIndicator size="large" color="#4CAF50" />
+        <View style={{flex:1}}>
+        <StudentTitle/>
+        <Card.Title
+    title="Download Page" titleStyle={{fontSize:20, color:"white"}}
+    left={(props) => <Avatar.Icon {...props} icon="cloud-download" style={{}}/>}
+    style={{backgroundColor:"#353839"}} />
+          <ActivityIndicator size={60} color="black" style={{flex:1}}/>
         </View>
       );
     }
+
+    if (ava) {
+      return (
+        <View style={{flex:1}}>
+        <StudentTitle/>
+        <Card.Title
+    title="Download Page" titleStyle={{fontSize:20, color:"white"}}
+    left={(props) => <Avatar.Icon {...props} icon="cloud-download" style={{}}/>}
+    style={{backgroundColor:"#353839"}} />
+          <Text style={{display:"flex", justifyContent:"center", alignItems:"center", height:"50%", fontSize:20}}>Resource Not Available</Text>
+          </View>
+        
+      );
+    }
+    
 
   return (
     <View style={{flex:1}}>
         <StudentTitle/>
   
     <Card.Title
-    title="Select Department" titleStyle={{fontSize:20, color:"white"}}
-    left={(props) => <Avatar.Icon {...props} icon="arrow-decision-outline" style={{}}/>}
+    title="Download Page" titleStyle={{fontSize:20, color:"white"}}
+    left={(props) => <Avatar.Icon {...props} icon="cloud-download" style={{}}/>}
     style={{backgroundColor:"#353839"}} />
 
     <ScrollView style={{padding:10}}>
-
-    
       {data.length > 0 &&
         (() => {
           const items = [];
           data.forEach((item) => {
             items.push(
-              <View>
-                <Text>Name: {item.sem}</Text>
-                <Text>Email: {item.reg}</Text>
-              </View>
+              <Card key={item.id}
+                  style={styles.cardm}>
+                  <Card.Title
+                  title={item.subname}
+                  titleNumberOfLines={3}
+                  titleStyle={styles.cardts}
+                  subtitle={"Regulation - "+item.reg}
+                  subtitleStyle={styles.cards}
+                  left={(props) => <Avatar.Icon {...props} icon="cloud-download" size={45} style={styles.cardi}/>}
+                  style={styles.cardt} />
+                  
+                  {item.ques.length > 0 &&
+        (() => {
+          const aitems = [];
+          item.ques.forEach((aitem) => {
+            aitems.push(
+                 <Card.Actions key={item.subname+aitem.aid}>
+                    <Button icon="cloud-check" onPress={()=>{Alert.alert("Document Publisher",aitem.publish)}}>{aitem.year}</Button>
+                    <Button icon="arrow-down-bold" onPress={()=>{Linking.openURL("https://drive.google.com/uc?id=1SFk4YZiHXn_jN2X2t82HCm6ncUDipBm6")}}>Download</Button>
+                  </Card.Actions>  
+            );
+          });
+          return aitems;
+        })()}
+
+                  </Card>
             );
           });
           return items;
