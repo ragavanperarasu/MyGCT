@@ -19,17 +19,25 @@ export default function SubShow({route}:{route: SubShowScreenProp}) {
     const f = reqType+regType+depType+semType
 
 
-    const url = `https://raw.githubusercontent.com/ragavanperarasu/MyGCTConfig/master/${reqType}/${regType}/${depType}/${semType}/${f}.json` 
-
-    const [data, setData] = useState([]);
+    const [data, setData] = useState('');
     const [loading, setLoading] = useState(true);
     const [ava, setAva] = useState(false);
 
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get(url);
-          setData(response.data); 
+        const url = `https://api.github.com/repos/ragavanperarasu/MyGCTConfig/contents/${reqType}/${regType}/${depType}/${semType}/${f}.json`;
+        
+        const token = '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';
+
+          const response = await axios.get(url, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          const content = atob(response.data.content)
+        
+          setData(JSON.parse(content)); 
           setLoading(false);
         } catch (error) {
           setLoading(false);
