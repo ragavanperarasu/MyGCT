@@ -12,8 +12,15 @@ type SemSelScreenProp = StackNavigationProp<RootStackParamList, "SemSel">;
 
 
 export default function SemSel({route}:{route: SemSelScreenProp}) {
-    const navigation = useNavigation<SemSelScreenProp>();
-    const {reqType, regType, depType, dep} = route.params;
+  const navigation = useNavigation<SemSelScreenProp>();
+  const {reqType, regType, depType, dep} = route.params;
+  
+  function sendURL(sem:string){
+    if (reqType === "semqus" || reqType === "ut1qus" || reqType === "ut2qus" || reqType === "syllabus"){
+      navigation.navigate('SubShow',{reqType:reqType, regType:regType, depType:depType, semType:sem})
+    }
+    
+  }
 
   return (
     <View style={{flex:1}}>
@@ -26,8 +33,7 @@ export default function SemSel({route}:{route: SemSelScreenProp}) {
 
     <ScrollView style={{padding:10}}>
 
-    <Card onPress={()=>navigation.
-      navigate('SubShow',{reqType:reqType, regType:regType, depType:depType, semType:"sem1"})} 
+    <Card onPress={()=>sendURL("sem1")} 
     style={styles.cardm}>
     <Card.Title
     title="Semester 1" 
@@ -38,7 +44,7 @@ export default function SemSel({route}:{route: SemSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SubShow',{reqType:reqType, regType:regType, depType:depType, semType:"sem2"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("sem2")} style={styles.cardm}>
     <Card.Title
     title="Semester 2" 
     titleStyle={styles.cardts}
@@ -48,7 +54,7 @@ export default function SemSel({route}:{route: SemSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SubShow',{reqType:reqType, regType:regType, depType:depType, semType:"sem3"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("sem3")} style={styles.cardm}>
     <Card.Title
     title="Semester 3" 
     titleNumberOfLines={2}
@@ -59,7 +65,7 @@ export default function SemSel({route}:{route: SemSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SubShow',{reqType:reqType, regType:regType, depType:depType, semType:"sem4"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("sem4")} style={styles.cardm}>
     <Card.Title
     title="Semester 4" 
     titleStyle={styles.cardts}
@@ -69,7 +75,7 @@ export default function SemSel({route}:{route: SemSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SubShow',{reqType:reqType, regType:regType, depType:depType, semType:"sem5"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("sem5")} style={styles.cardm}>
     <Card.Title
     title="Semester 5" 
     titleStyle={styles.cardts}
@@ -79,7 +85,7 @@ export default function SemSel({route}:{route: SemSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SubShow',{reqType:reqType, regType:regType, depType:depType, semType:"sem6"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("sem6")} style={styles.cardm}>
     <Card.Title
     title="Semester 6" 
     titleStyle={styles.cardts}
@@ -89,7 +95,7 @@ export default function SemSel({route}:{route: SemSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SubShow',{reqType:reqType, regType:regType, depType:depType, semType:"sem7"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("sem7")} style={styles.cardm}>
     <Card.Title
     title="Semester 7" 
     titleStyle={styles.cardts}
@@ -99,7 +105,7 @@ export default function SemSel({route}:{route: SemSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.navigate('SubShow',{reqType:reqType, regType:regType, depType:depType, semType:"sem8"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("sem8")} style={styles.cardm}>
     <Card.Title
     title="Semester 8" 
     titleStyle={styles.cardts}

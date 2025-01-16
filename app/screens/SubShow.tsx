@@ -69,7 +69,10 @@ export default function SubShow({route}:{route: SubShowScreenProp}) {
     title="Download Page" titleStyle={{fontSize:20, color:"white"}}
     left={(props) => <Avatar.Icon {...props} icon="cloud-download" style={{}}/>}
     style={{backgroundColor:"#353839"}} />
-          <Text style={{display:"flex", justifyContent:"center", alignItems:"center", height:"50%", fontSize:20}}>Resource Not Available</Text>
+    <View style={{display:"flex", justifyContent:"center", alignItems:"center", height:"50%"}}>
+    <Text style={{fontSize:20}}>Resource Not Available</Text>
+    </View>
+          
           </View>
         
       );
@@ -109,7 +112,7 @@ export default function SubShow({route}:{route: SubShowScreenProp}) {
             aitems.push(
                  <Card.Actions key={item.subname+aitem.aid}>
                     <Button icon="cloud-check" onPress={()=>{Alert.alert("Document Publisher",aitem.publish)}}>{aitem.year}</Button>
-                    <Button icon="arrow-down-bold" onPress={()=>{Linking.openURL("https://drive.google.com/uc?id=1SFk4YZiHXn_jN2X2t82HCm6ncUDipBm6")}}>Download</Button>
+                    <Button icon="arrow-down-bold" onPress={()=>{Linking.openURL(aitem.link)}}>Download</Button>
                   </Card.Actions>  
             );
           });
