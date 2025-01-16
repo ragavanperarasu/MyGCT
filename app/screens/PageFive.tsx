@@ -55,6 +55,14 @@ export default function PageFive() {
     left={(props) => <Avatar.Icon {...props} icon="bank" size={45} style={styles.cardi}/>}
     style={styles.cardt} /></Card>
 
+<Card onPress={()=>navigation.navigate('RegSel', {reqType:"semqus"})} style={styles.cardm}>
+    <Card.Title
+    title="Regulation" titleStyle={{fontSize:20, color:"white"}}
+    subtitle="All Regulation" 
+    subtitleStyle={styles.cards}
+    left={(props) => <Avatar.Icon {...props} icon="bank" size={45} style={styles.cardi}/>}
+    style={styles.cardt} /></Card>
+
     
     </ScrollView>
   </View>
