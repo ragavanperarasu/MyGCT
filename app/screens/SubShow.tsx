@@ -28,7 +28,7 @@ export default function SubShow({route}:{route: SubShowScreenProp}) {
         try {
         const url = `https://api.github.com/repos/ragavanperarasu/MyGCTConfig/contents/${reqType}/${regType}/${depType}/${semType}/${f}.json`;
         
-        const token = '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';
+        const token = '';
 
           const response = await axios.get(url, {
             headers: {
