@@ -18,7 +18,6 @@ export default function SubShow({route}:{route: SubShowScreenProp}) {
 
     const f = reqType+regType+depType+semType
 
-
     const [data, setData] = useState('');
     const [loading, setLoading] = useState(true);
     const [ava, setAva] = useState(false);
@@ -72,7 +71,6 @@ export default function SubShow({route}:{route: SubShowScreenProp}) {
     <View style={{display:"flex", justifyContent:"center", alignItems:"center", height:"50%"}}>
     <Text style={{fontSize:20}}>Resource Not Available</Text>
     </View>
-          
           </View>
         
       );
