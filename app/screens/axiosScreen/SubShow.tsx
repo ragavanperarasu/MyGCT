@@ -1,10 +1,10 @@
 import React,{ useEffect, useState } from 'react'
 import { View, StyleSheet, ScrollView,ActivityIndicator , Alert, Linking} from 'react-native'
-import StudentTitle from './StudentTitle'
+import StudentTitle from '../StudentTitle'
 import { Avatar, Card, Text, Button} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from './RootParam';
+import { RootStackParamList } from '../RootParam';
 
 import axios from "axios";
 
@@ -113,7 +113,7 @@ export default function SubShow({route}:{route: SubShowScreenProp}) {
                  <Card.Actions key={item.subname+aitem.aid}>
                     <Button icon="cloud-check" onPress={()=>{Alert.alert("Document Publisher",aitem.publish)}}>{aitem.year}</Button>
                     <Button icon="arrow-down-bold" onPress={()=>{Linking.openURL(aitem.link)}}>Download</Button>
-                  </Card.Actions>  
+                  </Card.Actions> 
             );
           });
           return aitems;

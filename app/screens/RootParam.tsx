@@ -7,4 +7,5 @@ export type RootStackParamList = {
   DepSel:{reqType : string, regType : string};
   SemSel:{reqType : string, regType : string , depType : string, dep : string};
   SubShow:{reqType : string, regType : string , depType : string, semType : string};
+  StaffProfileShow:{reqType : string, depType : string};
 };

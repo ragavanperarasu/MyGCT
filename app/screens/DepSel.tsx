@@ -10,8 +10,20 @@ type DepSelScreenProp = StackNavigationProp<RootStackParamList, "DepSel">;
 
 
 export default function DepSel({route}:{route: DepSelScreenProp}) {
-    const navigation = useNavigation<DepSelScreenProp>();
-    const {reqType, regType} = route.params;
+  const navigation = useNavigation<DepSelScreenProp>();
+  const {reqType, regType} = route.params;
+
+
+  function sendURL(depType:string, dep:string){
+    if (reqType === "semqus" || reqType === "ut1qus" || reqType === "ut2qus" || reqType === "syllabus"){
+      navigation.navigate('SemSel',{reqType:reqType, regType:regType, depType:depType, dep:dep})
+    }
+    else if(reqType === "Book" || reqType === "StaffProfile"){
+      navigation.navigate('StaffProfileShow', {reqType:reqType, depType:depType})
+    }
+    
+  }
+
   return (
     <View style={{flex:1}}>
         <StudentTitle/>
@@ -23,8 +35,7 @@ export default function DepSel({route}:{route: DepSelScreenProp}) {
 
     <ScrollView style={{padding:10}}>
 
-    <Card onPress={()=>navigation.
-      navigate('SemSel',{reqType:reqType, regType:regType, depType:"ce", dep:"Civil"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("ce","Civil")} style={styles.cardm}>
     <Card.Title
     title="Civil" 
     titleStyle={styles.cardts}
@@ -34,8 +45,7 @@ export default function DepSel({route}:{route: DepSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.
-      navigate('SemSel',{reqType:reqType, regType:regType, depType:"cse", dep:"CSE"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("cse","CSE")} style={styles.cardm}>
     <Card.Title
     title="Computer Science" 
     titleStyle={styles.cardts}
@@ -45,8 +55,7 @@ export default function DepSel({route}:{route: DepSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.
-      navigate('SemSel',{reqType:reqType, regType:regType, depType:"ecs", dep:"ECE"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("ece","ECE")} style={styles.cardm}>
     <Card.Title
     title="Electronics And Communication" 
     titleNumberOfLines={2}
@@ -57,8 +66,7 @@ export default function DepSel({route}:{route: DepSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.
-      navigate('SemSel',{reqType:reqType, regType:regType, depType:"ee", dep:"E&E"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("ee","E&E")} style={styles.cardm}>
     <Card.Title
     title="Electrical And Electronics" 
     titleNumberOfLines={2}
@@ -69,8 +77,7 @@ export default function DepSel({route}:{route: DepSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.
-      navigate('SemSel',{reqType:reqType, regType:regType, depType:"ei", dep:"E&I"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("ei","E&I")} style={styles.cardm}>
     <Card.Title
     title="Electrical And Instrumentation" 
     titleNumberOfLines={2}
@@ -81,8 +88,7 @@ export default function DepSel({route}:{route: DepSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.
-      navigate('SemSel',{reqType:reqType, regType:regType, depType:"ibt", dep:"IBT"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("ibt","IBT")} style={styles.cardm}>
     <Card.Title
     title="Industrial Biotechnology" 
     titleNumberOfLines={2}
@@ -93,8 +99,7 @@ export default function DepSel({route}:{route: DepSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.
-      navigate('SemSel',{reqType:reqType, regType:regType, depType:"it", dep:"IT"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("it","IT")} style={styles.cardm}>
     <Card.Title
     title="Information Technology" 
     titleStyle={styles.cardts}
@@ -104,8 +109,7 @@ export default function DepSel({route}:{route: DepSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.
-      navigate('SemSel',{reqType:reqType, regType:regType, depType:"me", dep:"Mechanical"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("me","Mechanical")} style={styles.cardm}>
     <Card.Title
     title="Mechanical" 
     titleStyle={styles.cardts}
@@ -115,8 +119,7 @@ export default function DepSel({route}:{route: DepSelScreenProp}) {
     style={styles.cardt} />
     </Card>
 
-    <Card onPress={()=>navigation.
-      navigate('SemSel',{reqType:reqType, regType:regType, depType:"pe", dep:"Production"})} style={styles.cardm}>
+    <Card onPress={()=>sendURL("pe","Production")} style={styles.cardm}>
     <Card.Title
     title="Production" 
     titleStyle={styles.cardts}
@@ -125,8 +128,6 @@ export default function DepSel({route}:{route: DepSelScreenProp}) {
     left={(props) => <Avatar.Icon {...props} icon="card-account-details" size={45} style={styles.cardi}/>}
     style={styles.cardt} />
     </Card>
-
-
 
     </ScrollView>
     </View>
@@ -156,4 +157,3 @@ const styles = StyleSheet.create({
         fontWeight:700,
     }
   });
-
