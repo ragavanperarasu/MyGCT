@@ -3,7 +3,7 @@ import { View,ScrollView, StyleSheet, Image } from 'react-native';
 import { Avatar, Card} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from './RootParam';
+import { RootStackParamList } from '../RootParam';
 
 
 type HomeScreenProp = StackNavigationProp<RootStackParamList, "Home">;
@@ -22,8 +22,8 @@ export default function PageTwo() {
 
     <Card onPress={()=>sendURL('StaffDoc')} style={styles.cardm}>
     <Card.Title
-    title="Recommendation" titleStyle={{fontSize:20, color:"white"}}
-    subtitle="Staff Documents" 
+    title="Staff Notes" titleStyle={{fontSize:20, color:"white"}}
+    subtitle="Documents" 
     subtitleStyle={styles.cards}
     left={(props) => <Avatar.Icon {...props} icon="account-tie" size={45} style={styles.cardi}/>}
     style={styles.cardt} /></Card>

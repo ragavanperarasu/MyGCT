@@ -2,9 +2,6 @@ import React from 'react';
 import { Avatar,Appbar } from 'react-native-paper';
 
 
-
-
-
 export default function StudentTitle() {
   return (
         <Appbar.Header style={{backgroundColor:"black"}}>

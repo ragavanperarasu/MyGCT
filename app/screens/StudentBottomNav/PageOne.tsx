@@ -3,7 +3,7 @@ import { View,ScrollView, StyleSheet } from 'react-native';
 import { Avatar, Card} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from './RootParam';
+import { RootStackParamList } from '../RootParam';
 
 
 type HomeScreenProp = StackNavigationProp<RootStackParamList, "Home">;
@@ -51,6 +51,14 @@ export default function PageOne() {
     <Card.Title
     title="Time Table" titleStyle={{fontSize:20, color:"white"}}
     subtitle="Department" 
+    subtitleStyle={styles.cards}
+    left={(props) => <Avatar.Icon {...props} icon="book-open-page-variant" size={45} style={styles.cardi}/>}
+    style={styles.cardt}/></Card>
+
+<Card style={styles.cardm} onPress={()=>navigation.navigate('RegSel', {reqType:"syllabus"})}>
+    <Card.Title
+    title="Student Notes" titleStyle={{fontSize:20, color:"white"}}
+    subtitle="Handwritten" 
     subtitleStyle={styles.cards}
     left={(props) => <Avatar.Icon {...props} icon="book-open-page-variant" size={45} style={styles.cardi}/>}
     style={styles.cardt}/></Card>

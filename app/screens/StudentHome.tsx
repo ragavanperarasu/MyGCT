@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import BottomNav from './BottomNav'
-import StudentTitle from './StudentTitle';
+import BottomNav from './StudentBottomNav/BottomNav'
+import StudentTitle from './TileBar/StudentTitle';
 
 
 export default function StudentHome() {

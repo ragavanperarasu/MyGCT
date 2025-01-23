@@ -3,7 +3,8 @@ import { View,ScrollView, StyleSheet } from 'react-native';
 import { Avatar, Card} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from './RootParam';
+import { RootStackParamList } from '../RootParam';
+
 
 
 type HomeScreenProp = StackNavigationProp<RootStackParamList, "Home">;
@@ -14,14 +15,25 @@ export default function PageFive() {
   return (
     <View>
       <ScrollView style={{padding:10}}>
-
-    <Card onPress={()=>navigation.navigate('RegSel', {reqType:"semqus"})} style={styles.cardm}>
+      <Card onPress={()=>navigation.navigate('RegSel', {reqType:"semqus"})} style={styles.cardm}>
+    <Card.Cover source={require('../../../assets/images/gctcollege.jpg')} style={styles.cardimg}/>
     <Card.Title
     title="GCT Website" titleStyle={{fontSize:20, color:"white"}}
     subtitle="Official Website" 
     subtitleStyle={styles.cards}
     left={(props) => <Avatar.Icon {...props} icon="bank" size={45} style={styles.cardi}/>}
-    style={styles.cardt} /></Card>
+    style={styles.cardtp} /></Card>
+
+    <Card style={styles.cardm}>
+    <Card.Cover source={require('../../../assets/images/principle.jpg')} style={styles.cardimg}/>
+    <Card.Title
+    title="Dr.K.Manonmani" titleStyle={{fontSize:20, color:"white"}}
+    subtitle="Principal" 
+    subtitleStyle={styles.cards}
+    left={(props) => <Avatar.Icon {...props} icon="bank" size={45} style={styles.cardi}/>}
+    style={styles.cardtp} /></Card>
+
+    
 
     <Card onPress={()=>navigation.navigate('RegSel', {reqType:"semqus"})} style={styles.cardm}>
     <Card.Title
@@ -55,14 +67,6 @@ export default function PageFive() {
     left={(props) => <Avatar.Icon {...props} icon="bank" size={45} style={styles.cardi}/>}
     style={styles.cardt} /></Card>
 
-<Card onPress={()=>navigation.navigate('RegSel', {reqType:"semqus"})} style={styles.cardm}>
-    <Card.Title
-    title="Regulation" titleStyle={{fontSize:20, color:"white"}}
-    subtitle="All Regulation" 
-    subtitleStyle={styles.cards}
-    left={(props) => <Avatar.Icon {...props} icon="bank" size={45} style={styles.cardi}/>}
-    style={styles.cardt} /></Card>
-
     
     </ScrollView>
   </View>
@@ -73,6 +77,17 @@ const styles = StyleSheet.create({
   cardm: {
     boxShadow:"5 5 5 gray", 
     margin:10,
+  },
+  cardimg: {
+    borderBottomLeftRadius:0,
+    borderBottomRightRadius:0,
+  },
+  
+  cardtp: {
+    backgroundColor:"#32174D",
+    borderBottomRightRadius:10,
+    borderBottomLeftRadius:10,
+    padding:30,
   },
   cardt: {
     backgroundColor:"#32174D",

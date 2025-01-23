@@ -6,7 +6,7 @@ import {
   Image,
   ActivityIndicator,
 } from "react-native";
-import StudentTitle from "../StudentTitle";
+import StudentTitle from "../TileBar/StudentTitle";
 import { Avatar, Card, Text, Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";

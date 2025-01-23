@@ -2,6 +2,7 @@ import * as React from 'react';
 import { BottomNavigation, Text } from 'react-native-paper';
 import PageOne from './PageOne';
 import PageTwo from './PageTwo';
+import PageFour from './PageFour';
 import PageFive from './PageFive';
 
 
@@ -9,7 +10,7 @@ const MusicRoute = () => <PageOne/>;
 
 const AlbumsRoute = () => <PageTwo/>;
 
-const RecentsRoute = () => <Text>Recents</Text>;
+const RecentsRoute = () => <PageFour/>;
 
 const NewsRoute = () => <Text>Updates</Text>;
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native'
-import StudentTitle from './StudentTitle'
+import StudentTitle from './TileBar/StudentTitle'
 import { Avatar, Card} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import { StackNavigationProp } from "@react-navigation/stack";
