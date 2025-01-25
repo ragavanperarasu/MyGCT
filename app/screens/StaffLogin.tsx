@@ -7,7 +7,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function StaffLogin() {
 
-  const token = "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";
+  const token = "";
 
   const cache = new Cache({
     namespace: "myapp",
