@@ -7,7 +7,7 @@ export default function StudentTitle() {
         <Appbar.Header style={{backgroundColor:"black"}}>
         <Avatar.Icon size={45} icon="account" style={{ backgroundColor:"black"}}/>
             <Appbar.Content title="Student" color='#FFD700' titleStyle={{fontWeight:"700"}}/>
-            <Appbar.Action icon="dots-vertical" color='white'/>
+            <Appbar.Action icon="react" color='white'/>
         </Appbar.Header>
 
   );

@@ -38,21 +38,23 @@ export default function HomeScreen() {
 
           <Button
             mode="contained"
-            onPress={() => navigation.navigate("StaffLogin")}
-            style={styles.but}
-            labelStyle={styles.butlab}
-          >
-            Lecturer
-          </Button>
-
-          <Button
-            mode="contained"
             onPress={() => navigation.navigate("StudentHome")}
             style={styles.but}
             labelStyle={styles.butlab}
           >
-            Student
+            B.E. Student
           </Button>
+
+          <Button
+            mode="contained"
+            onPress={() => navigation.navigate("StaffLogin")}
+            style={styles.but}
+            labelStyle={styles.butlab}
+          >
+            Super User
+          </Button>
+
+
         </View>
       </View>
     </PaperProvider>
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#007FFF",
     borderRadius: 5,
     margin: 10,
-    width: "60%",
+    width: "80%",
   },
   butlab: {
     color: "white",
